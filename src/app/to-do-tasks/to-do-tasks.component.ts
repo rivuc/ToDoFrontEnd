@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-to-do-task',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
-  templateUrl: './to-do-tasks.component.html',
-  styleUrl: './to-do-task.component.css',
+    selector: 'app-to-do-task',
+    imports: [CommonModule, RouterOutlet],
+    templateUrl: './to-do-tasks.component.html',
+    styleUrl: './to-do-task.component.css'
 })
 export class ToDoTasksComponent implements OnInit {
   toDoTasks: ToDoTask[] = [];
