@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-start mt-3">
+      <button
+        class="btn btn-primary btn-lg fw-bold py-3 px-5"
+        (click)="onNewTask()"
+      >
+        Add
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4">
+      <h2>To Do</h2>
+
+      <ul class="list-group">
+        <li
+          class="list-group-item list-group-item-action"
+          [class.active]="getIndex() === i"
+          (click)="onEditTask(i)"
+          *ngFor="let t of toDoTasks; let i = index"
+        >
+          {{ t.title }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-8">
+      <h2>Details</h2>
+      <div id="detalles" class="p-3 border rounded">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>
