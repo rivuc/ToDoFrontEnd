@@ -7,10 +7,11 @@ import { of, Subscription, switchMap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'app-to-do-task-edit',
-    imports: [FormsModule, CommonModule],
-    templateUrl: './to-do-task-edit.component.html',
-    styleUrl: './to-do-task-edit.component.css'
+  selector: 'app-to-do-task-edit',
+  standalone: true,
+  imports: [FormsModule, CommonModule],
+  templateUrl: './to-do-task-edit.component.html',
+  styleUrl: './to-do-task-edit.component.css',
 })
 export class ToDoTaskEditComponent implements OnInit, OnDestroy {
   @ViewChild('f', { static: false }) toDoForm: NgForm | undefined;

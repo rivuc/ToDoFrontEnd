@@ -25,6 +25,7 @@ describe('ToDoTaskEditComponent', () => {
       'deleteToDoTask',
     ]);
     toDoTaskServiceSpy.startedEditing = new Subject<number>();
+    routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     let activatedRoute = {
       params: of({ id: '1' }),

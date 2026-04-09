@@ -1,0 +1,9 @@
+<p>to-do-task-calendar works!</p>
+
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<app-to-do-task-edit-v2
+  [(visibleDialog)]="visibleEdit"
+  [task]="selectedTask"
+  (save)="onSave($event)"
+></app-to-do-task-edit-v2>

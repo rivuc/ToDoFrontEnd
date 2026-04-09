@@ -18,7 +18,11 @@
     "@angular/platform-browser": "^20.1.4",
     "@angular/platform-browser-dynamic": "^20.1.4",
     "@angular/router": "^20.1.4",
-    "bootstrap": "^5.3.3",
+    "@fullcalendar/angular": "^6.1.19",
+    "@primeuix/themes": "^1.2.3",
+    "fullcalendar": "^6.1.19",
+    "primeicons": "^7.0.0",
+    "primeng": "^20.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.1"

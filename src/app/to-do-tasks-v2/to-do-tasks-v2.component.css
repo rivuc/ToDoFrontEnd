@@ -1,0 +1,12 @@
+.overlay {
+  position: fixed; /* se queda fijo en pantalla */
+  top: 0;
+  left: 0;
+  width: 100vw; /* ocupa toda la pantalla */
+  height: 100vh;
+  display: flex; /* centrado con flexbox */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3); /* semi-transparente */
+  z-index: 9999; /* arriba de todo */
+}

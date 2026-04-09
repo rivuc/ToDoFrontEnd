@@ -1,0 +1,80 @@
+<p-toast />
+<p-toolbar class="mb-6">
+  <ng-template #start>
+    <p-button label="New" icon="pi pi-plus" class="mr-2" (click)="openNew()" />
+    <p-button
+      label="Delete"
+      icon="pi pi-trash"
+      severity="danger"
+      [disabled]="!selectedTasks || selectedTasks.length === 0"
+      (click)="onDeleteSelected()"
+    />
+  </ng-template>
+</p-toolbar>
+<p-table
+  [value]="toDoTasks"
+  [loading]="loading"
+  [paginator]="true"
+  [rows]="5"
+  [(selection)]="selectedTasks"
+  dataKey="id"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th style="width: 4rem">
+        <p-tableHeaderCheckbox />
+      </th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-task let-rowIndex="rowIndex">
+    <tr class="p-selectable-row">
+      <td>
+        <p-tableCheckbox [value]="task" />
+      </td>
+      <td>{{ task.title }}</td>
+      <td>
+        @if (task.isDone){
+        <i class="pi pi-check" style="color: green" pTooltip="Completed"></i>
+        } @else {
+        <i class="pi pi-times" style="color: red" pTooltip="Pending"></i>
+        }
+      </td>
+      <td>
+        <button
+          pButton
+          pTooltip="Edit"
+          icon="pi pi-pencil"
+          class="p-button-text p-button-info"
+          (click)="onEdit(task)"
+        ></button>
+        <button
+          pButton
+          pTooltip="Delete"
+          icon="pi pi-trash"
+          class="p-button-text p-button-danger"
+          (click)="onDelete(rowIndex)"
+        ></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<app-to-do-task-edit-v2
+  [(visibleDialog)]="visibleEdit"
+  [task]="selectedTask"
+  (save)="onSave($event)"
+></app-to-do-task-edit-v2>
+
+@if (saving) {
+<div class="overlay">
+  <p-progress-spinner
+    strokeWidth="8"
+    fill="transparent"
+    animationDuration=".5s"
+    [style]="{ width: '50px', height: '50px' }"
+  />
+</div>
+}

@@ -1,7 +1,7 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap, take } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +21,8 @@ export class AuthService {
     const currentToken = this.tokenSubject.getValue();
 
     if (currentToken && this.isTokenValid(currentToken)) {
-      return this.tokenSubject.asObservable();
+      //return this.tokenSubject.pipe(take(1)); //.asObservable();
+      return of(currentToken);
     } else {
       return this.refreshToken();
     }

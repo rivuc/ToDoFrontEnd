@@ -1,0 +1,50 @@
+<form class="p-fluid" (ngSubmit)="onSave(taskForm1)" #taskForm1="ngForm">
+  <p-dialog
+    header="Edit Task"
+    [modal]="true"
+    [visible]="visibleDialog"
+    (onHide)="closeDialog()"
+    (visibleChange)="closeDialog()"
+    [style]="{ width: '25rem' }"
+  >
+    @if (task) {
+
+    <div class="field">
+      <label for="title">Title: </label>
+      <input
+        id="title"
+        type="text"
+        pInputText
+        [(ngModel)]="task.title"
+        name="title"
+        required
+        minlength="5"
+      />
+    </div>
+
+    <div class="field">
+      <label for="isDone">Is Done: </label>
+      <p-toggleswitch [(ngModel)]="task.isDone" name="isDone"></p-toggleswitch>
+    </div>
+
+    }
+
+    <ng-template pTemplate="footer">
+      <p-button
+        icon="pi pi-times"
+        (click)="closeDialog()"
+        label="Cancel"
+        type="button"
+        severity="secondary"
+      >
+      </p-button>
+      <p-button
+        icon="pi pi-check"
+        label="Save"
+        type="submit"
+        [disabled]="taskForm1.invalid"
+      >
+      </p-button>
+    </ng-template>
+  </p-dialog>
+</form>

@@ -4,10 +4,10 @@ import { HeaderComponent } from './header/header.component';
 import { ToDoTasksComponent } from './to-do-tasks/to-do-tasks.component';
 
 @Component({
-    selector: 'app-root',
-    imports: [RouterOutlet, HeaderComponent, ToDoTasksComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css'
+  selector: 'app-root',
+  imports: [RouterOutlet, HeaderComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ToDoFrontEnd';

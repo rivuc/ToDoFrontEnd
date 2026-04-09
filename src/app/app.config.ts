@@ -5,9 +5,12 @@ import {
   provideHttpClient,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-
 import { routes } from './app.routes';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { providePrimeNG } from 'primeng/config';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import MyPreset from './primeNg/mypreset';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -19,5 +22,12 @@ export const appConfig: ApplicationConfig = {
       useClass: AuthInterceptorService,
       multi: true,
     },
+    provideAnimationsAsync(),
+    providePrimeNG({
+      theme: {
+        preset: MyPreset,
+      },
+    }),
+    provideAnimations(),
   ],
 };
